@@ -1,0 +1,178 @@
+{
+    "animal": {
+        "categories": [
+            "animal"
+        ],
+        "created_at": "2020-01-05 13:42:19.104863",
+        "icon_url": "https://api.chucknorris.io/img/avatar/chuck-norris.png",
+        "id": "o-vfxwx6rgecuo_f5cecpq",
+        "updated_at": "2020-01-05 13:42:19.104863",
+        "url": "https://api.chucknorris.io/jokes/o-vfxwx6rgecuo_f5cecpq",
+        "value": "They say curiosity killed the cat. This is false. Chuck Norris killed the cat. Every single one of them."
+    },
+    "career": {
+        "categories": [
+            "career"
+        ],
+        "created_at": "2020-01-05 13:42:19.576875",
+        "icon_url": "https://api.chucknorris.io/img/avatar/chuck-norris.png",
+        "id": "zk14uc6xr82d7ig9qhaymg",
+        "updated_at": "2020-01-05 13:42:19.576875",
+        "url": "https://api.chucknorris.io/jokes/zk14uc6xr82d7ig9qhaymg",
+        "value": "Chuck Norris is actually the front man for Apple. He let's Steve Jobs run the show when he's on a mission. Chuck Norris is always on a mission."
+    },
+    "celebrity": {
+        "categories": [
+            "celebrity"
+        ],
+        "created_at": "2020-01-05 13:42:19.576875",
+        "icon_url": "https://api.chucknorris.io/img/avatar/chuck-norris.png",
+        "id": "4fmvnwfasrwmh58yjbuv1g",
+        "updated_at": "2020-01-05 13:42:19.576875",
+        "url": "https://api.chucknorris.io/jokes/4fmvnwfasrwmh58yjbuv1g",
+        "value": "Chuck Norris is the only person to ever win a staring contest against Ray Charles and Stevie Wonder."
+    },
+    "dev": {
+        "categories": [
+            "dev"
+        ],
+        "created_at": "2020-01-05 13:42:19.104863",
+        "icon_url": "https://api.chucknorris.io/img/avatar/chuck-norris.png",
+        "id": "jqgu04prsomr9uiwbyzebq",
+        "updated_at": "2020-01-05 13:42:19.104863",
+        "url": "https://api.chucknorris.io/jokes/jqgu04prsomr9uiwbyzebq",
+        "value": "For Chuck Norris, NP-Hard = O(1)."
+    },
+    "explicit": {
+        "categories": [
+            "explicit"
+        ],
+        "created_at": "2020-01-05 13:42:29.855523",
+        "icon_url": "https://api.chucknorris.io/img/avatar/chuck-norris.png",
+        "id": "GhRlXFMORRmtH-_fvekxTw",
+        "updated_at": "2020-01-05 13:42:29.855523",
+        "url": "https://api.chucknorris.io/jokes/GhRlXFMORRmtH-_fvekxTw",
+        "value": "Chuck Norris can smother a Velociraptor by clamping his anal sphincter around the raptor's nose."
+    },
+    "fashion": {
+        "categories": [
+            "fashion"
+        ],
+        "created_at": "2020-01-05 13:42:18.823766",
+        "icon_url": "https://api.chucknorris.io/img/avatar/chuck-norris.png",
+        "id": "0wdewlp2tz-mt_upesvrjw",
+        "updated_at": "2020-01-05 13:42:18.823766",
+        "url": "https://api.chucknorris.io/jokes/0wdewlp2tz-mt_upesvrjw",
+        "value": "Chuck Norris does not follow fashion trends, they follow him. But then he turns around and kicks their ass. Nobody follows Chuck Norris."
+    },
+    "food": {
+        "categories": [
+            "food"
+        ],
+        "created_at": "2020-01-05 13:42:18.823766",
+        "icon_url": "https://api.chucknorris.io/img/avatar/chuck-norris.png",
+        "id": "TJ7QCm25RpGZZo-90zyO0w",
+        "updated_at": "2020-01-05 13:42:18.823766",
+        "url": "https://api.chucknorris.io/jokes/TJ7QCm25RpGZZo-90zyO0w",
+        "value": "Chuck Norris can get Mexican food at a Japanese restaurant."
+    },
+    "history": {
+        "categories": [
+            "history"
+        ],
+        "created_at": "2020-01-05 13:42:19.576875",
+        "icon_url": "https://api.chucknorris.io/img/avatar/chuck-norris.png",
+        "id": "kfjreqvxs464s6rspcj-qq",
+        "updated_at": "2020-01-05 13:42:19.576875",
+        "url": "https://api.chucknorris.io/jokes/kfjreqvxs464s6rspcj-qq",
+        "value": "Chuck Norris once shot down a German fighter plane with his finger. By yelling 'Bang!'"
+    },
+    "money": {
+        "categories": [
+            "money"
+        ],
+        "created_at": "2020-01-05 13:42:19.576875",
+        "icon_url": "https://api.chucknorris.io/img/avatar/chuck-norris.png",
+        "id": "i3ri7iiurh6l1vnvtqow2a",
+        "updated_at": "2020-01-05 13:42:19.576875",
+        "url": "https://api.chucknorris.io/jokes/i3ri7iiurh6l1vnvtqow2a",
+        "value": "When Chuck Norris calls 1-900 numbers, he doesn't get charged. He holds up the phone and money falls out."
+    },
+    "movie": {
+        "categories": [
+            "movie"
+        ],
+        "created_at": "2020-01-05 13:42:19.576875",
+        "icon_url": "https://api.chucknorris.io/img/avatar/chuck-norris.png",
+        "id": "zc2g3me0rnqbfankmo99hq",
+        "updated_at": "2020-01-05 13:42:19.576875",
+        "url": "https://api.chucknorris.io/jokes/zc2g3me0rnqbfankmo99hq",
+        "value": "MacGyver immediately tried to make a bomb out of some Q-Tips and Gatorade, but Chuck Norris roundhouse-kicked him in the solar plexus. MacGyver promptly threw up his own heart."
+    },
+    "music": {
+        "categories": [
+            "music"
+        ],
+        "created_at": "2020-01-05 13:42:19.576875",
+        "icon_url": "https://api.chucknorris.io/img/avatar/chuck-norris.png",
+        "id": "jb5hryzor2antfninn5-_g",
+        "updated_at": "2020-01-05 13:42:19.576875",
+        "url": "https://api.chucknorris.io/jokes/jb5hryzor2antfninn5-_g",
+        "value": "Most boots are made for walkin. Chuck Norris boots ain't that merciful."
+    },
+    "political": {
+        "categories": [
+            "political"
+        ],
+        "created_at": "2020-01-05 13:42:29.855523",
+        "icon_url": "https://api.chucknorris.io/img/avatar/chuck-norris.png",
+        "id": "fD1nLFTzQ6uGzLktpc0abg",
+        "updated_at": "2020-01-05 13:42:29.855523",
+        "url": "https://api.chucknorris.io/jokes/fD1nLFTzQ6uGzLktpc0abg",
+        "value": "The reason why Barack Obama hasn't came out and said he is a muslim is because Chuck Norris is still alive"
+    },
+    "religion": {
+        "categories": [
+            "religion"
+        ],
+        "created_at": "2020-01-05 13:42:19.576875",
+        "icon_url": "https://api.chucknorris.io/img/avatar/chuck-norris.png",
+        "id": "zuf836jurwgszxegfxe76g",
+        "updated_at": "2020-01-05 13:42:19.576875",
+        "url": "https://api.chucknorris.io/jokes/zuf836jurwgszxegfxe76g",
+        "value": "The Bible was originally titled 'Chuck Norris and Friends'"
+    },
+    "science": {
+        "categories": [
+            "science"
+        ],
+        "created_at": "2020-01-05 13:42:19.324003",
+        "icon_url": "https://api.chucknorris.io/img/avatar/chuck-norris.png",
+        "id": "u-xwyw6rq0-dxrq1rioogg",
+        "updated_at": "2020-01-05 13:42:19.324003",
+        "url": "https://api.chucknorris.io/jokes/u-xwyw6rq0-dxrq1rioogg",
+        "value": "Chuck Norris once roundhouse kicked someone so hard that his foot broke the speed of light, went back in time, and killed Amelia Earhart while she was flying over the Pacific Ocean."
+    },
+    "sport": {
+        "categories": [
+            "sport"
+        ],
+        "created_at": "2020-01-05 13:42:19.576875",
+        "icon_url": "https://api.chucknorris.io/img/avatar/chuck-norris.png",
+        "id": "359ti8ofstyigqyh5nphnq",
+        "updated_at": "2020-01-05 13:42:19.576875",
+        "url": "https://api.chucknorris.io/jokes/359ti8ofstyigqyh5nphnq",
+        "value": "Chuck Norris began selling the Total Gym as an ill-fated attempt to make his day-to-day opponents less laughably pathetic."
+    },
+    "travel": {
+        "categories": [
+            "travel"
+        ],
+        "created_at": "2020-01-05 13:42:18.823766",
+        "icon_url": "https://api.chucknorris.io/img/avatar/chuck-norris.png",
+        "id": "uv5jvundsfuyiuiwswy3ba",
+        "updated_at": "2020-01-05 13:42:18.823766",
+        "url": "https://api.chucknorris.io/jokes/uv5jvundsfuyiuiwswy3ba",
+        "value": "Chuck Norris did in fact, build Rome in a day."
+    }
+}
