@@ -575,3 +575,18 @@
 [2024-12-20 14:41:13,843][DEBUG][chuck_norris.py][32] no error while trying response-testing
 [2024-12-20 14:41:13,845][DEBUG][connectionpool.py][1051] Starting new HTTPS connection (1): api.chucknorris.io:443
 [2024-12-20 14:41:14,145][DEBUG][connectionpool.py][546] https://api.chucknorris.io:443 "GET /jokes/random HTTP/11" 200 None
+[2024-12-20 17:25:07,525][DEBUG][connectionpool.py][1051] Starting new HTTPS connection (1): api.chucknorris.io:443
+[2024-12-20 17:25:07,674][DEBUG][connectionpool.py][546] https://api.chucknorris.io:443 "GET /jokes/categories HTTP/11" 200 None
+[2024-12-20 17:25:07,675][DEBUG][chuck_norris.py][39] no error while trying response-testing
+[2024-12-20 17:25:07,676][DEBUG][connectionpool.py][1051] Starting new HTTPS connection (1): api.chucknorris.io:443
+[2024-12-20 17:25:07,756][DEBUG][connectionpool.py][546] https://api.chucknorris.io:443 "GET /jokes/random HTTP/11" 200 None
+[2024-12-20 17:26:36,322][DEBUG][connectionpool.py][1051] Starting new HTTPS connection (1): api.chucknorris.io:443
+[2024-12-20 17:26:36,400][DEBUG][connectionpool.py][546] https://api.chucknorris.io:443 "GET /jokes/categories HTTP/11" 200 None
+[2024-12-20 17:26:36,401][DEBUG][chuck_norris.py][39] no error while trying response-testing
+[2024-12-20 17:26:36,402][DEBUG][connectionpool.py][1051] Starting new HTTPS connection (1): api.chucknorris.io:443
+[2024-12-20 17:26:36,587][DEBUG][connectionpool.py][546] https://api.chucknorris.io:443 "GET /jokes/random HTTP/11" 200 None
+[2024-12-20 17:27:12,914][DEBUG][connectionpool.py][1051] Starting new HTTPS connection (1): api.chucknorris.io:443
+[2024-12-20 17:27:13,013][DEBUG][connectionpool.py][546] https://api.chucknorris.io:443 "GET /jokes/categories HTTP/11" 200 None
+[2024-12-20 17:27:13,014][DEBUG][chuck_norris.py][39] no error while trying response-testing
+[2024-12-20 17:27:13,015][DEBUG][connectionpool.py][1051] Starting new HTTPS connection (1): api.chucknorris.io:443
+[2024-12-20 17:27:13,087][DEBUG][connectionpool.py][546] https://api.chucknorris.io:443 "GET /jokes/random HTTP/11" 200 None
