@@ -18,6 +18,6 @@ logging.basicConfig(
 
 chuck_norris1 = retrieve_chuck_norris_jokes(categories_url=categories)
 chuck_norris1.retrieve_categories()
-chuck_norris1.retrieve_jokes_from_categories()
+chuck_norris1.retrieve_new_joke()
 
 

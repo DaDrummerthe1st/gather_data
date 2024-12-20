@@ -1,5 +1,6 @@
 import requests
 import logging
+import pandas as pd
 
 
 logger = logging.getLogger(__name__)
@@ -15,7 +16,7 @@ logging.basicConfig(
 class retrieve_chuck_norris_jokes:
     def __init__(self, categories_url):
         self.categories_url = categories_url
-        self.chuck_norris_jokes = {}
+        self.chuck_norris_jokes = []
 
     def retrieve_categories(self) -> list:
         try:
@@ -49,16 +50,34 @@ class retrieve_chuck_norris_jokes:
             try:
                 for category in categories:
                     response = requests.get(f'https://api.chucknorris.io/jokes/random?category={category}')
-                    self.chuck_norris_jokes[category] = response.json()
+                    response_json = response.json()
+                    for category in response_json["categories"]:
+                        print(category)
+
+                    # self.chuck_norris_jokes.append(response.json())
                     # first_time = 0
                     # if first_time <= 1:
                     #     logger.debug(response.json())
                     # first_time += 1
+            except KeyError as key_err:
+                print("Key Error: " + str(key_err))
+                logger.critical("Key Error: " + str(key_err))
             except ConnectionError as e:
                 print('Connection Error: ' + str(e))
                 logger.error('Connection Error: ' + str(e))
-            except Exception as e:
-                print('unknonw error: ' + str(e))
-                logger.error('unknonw error: ' + str(e))
             else:
-                
+                print(self.chuck_norris_jokes)
+
+    def retrieve_new_joke(self):
+        try:
+            response = requests.get('https://api.chucknorris.io/jokes/random')
+            response_json = response.json()
+        except KeyError as key_err:
+            print("Key Error: " + str(key_err))
+            logger.critical("Key Error: " + str(key_err))
+        except ConnectionError as e:
+            print('Connection Error: ' + str(e))
+            logger.error('Connection Error: ' + str(e))
+        else:
+            df = pd.DataFrame(response_json)
+            response_json["created_at"]
