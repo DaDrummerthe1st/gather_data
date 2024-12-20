@@ -37,7 +37,7 @@ class retrieve_chuck_norris_jokes:
             else:
                 return categories
     
-    def retrieve_jokes_from_categories(self):
+    def update_jokes_from_categories(self):
         try:
             categories = self.retrieve_categories()
         except Exception as e:
@@ -50,10 +50,10 @@ class retrieve_chuck_norris_jokes:
                 for category in categories:
                     response = requests.get(f'https://api.chucknorris.io/jokes/random?category={category}')
                     self.chuck_norris_jokes[category] = response.json()
-                    first_time = 0
-                    if first_time <= 1:
-                        logger.debug(response.json())
-                    first_time += 1
+                    # first_time = 0
+                    # if first_time <= 1:
+                    #     logger.debug(response.json())
+                    # first_time += 1
             except ConnectionError as e:
                 print('Connection Error: ' + str(e))
                 logger.error('Connection Error: ' + str(e))
@@ -61,4 +61,4 @@ class retrieve_chuck_norris_jokes:
                 print('unknonw error: ' + str(e))
                 logger.error('unknonw error: ' + str(e))
             else:
-                 print(self.chuck_norris_jokes)
+                
