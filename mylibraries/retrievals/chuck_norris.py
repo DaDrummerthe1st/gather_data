@@ -16,12 +16,12 @@ logging.basicConfig(
 class retrieve_chuck_norris_jokes:
     def __init__(self, categories_url):
         self.categories_url = categories_url
-        self.chuck_norris_jokes = []
+        self.chuck_norris_jokes = {"id":[],"created_at":[],"updated_at":[],"value":[],"category":[],}
         self.pd = pd.DataFrame(self.chuck_norris_jokes)
 
     def retrieve_categories(self) -> list:
         try:
-            response = requests.get(self.categories_url)
+            response = requests.get(self.categories_url, timeout=10)
         except ConnectionError as e:
             print('Connection Error: ' + str(e))
             logger.error('Connection Error: ' + str(e))
@@ -50,7 +50,7 @@ class retrieve_chuck_norris_jokes:
             
             try:
                 for category in categories:
-                    response = requests.get(f'https://api.chucknorris.io/jokes/random?category={category}')
+                    response = requests.get(f'https://api.chucknorris.io/jokes/random?category={category}', timeout=10)
                     response_json = response.json()
                     for category in response_json["categories"]:
                         print(category)
@@ -71,7 +71,7 @@ class retrieve_chuck_norris_jokes:
 
     def retrieve_new_joke(self):
         try:
-            response = requests.get('https://api.chucknorris.io/jokes/random')
+            response = requests.get('https://api.chucknorris.io/jokes/random', , timeout=10)
             response_json = response.json()
         except KeyError as key_err:
             print("Key Error: " + str(key_err))
@@ -83,6 +83,9 @@ class retrieve_chuck_norris_jokes:
             try:
                 response_df = pd.DataFrame(response_json)
                 for id in self.pd["id"]:
-                    if response_json["id"] != id:
-                        self.pd["id"] = response_json["id"]
-                        self.pd[]
+                    print(id)
+                    # if response_json["id"] != id:
+                    #     self.pd["id"] = self.pd[id]
+                    #     self.pd[""]
+            except ValueError as val_err:
+                print("ValueError: " + str(val_err))
