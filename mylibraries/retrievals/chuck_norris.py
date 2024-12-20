@@ -17,6 +17,7 @@ class retrieve_chuck_norris_jokes:
     def __init__(self, categories_url):
         self.categories_url = categories_url
         self.chuck_norris_jokes = []
+        self.pd = pd.DataFrame(self.chuck_norris_jokes)
 
     def retrieve_categories(self) -> list:
         try:
@@ -79,5 +80,9 @@ class retrieve_chuck_norris_jokes:
             print('Connection Error: ' + str(e))
             logger.error('Connection Error: ' + str(e))
         else:
-            df = pd.DataFrame(response_json)
-            response_json["created_at"]
+            try:
+                response_df = pd.DataFrame(response_json)
+                for id in self.pd["id"]:
+                    if response_json["id"] != id:
+                        self.pd["id"] = response_json["id"]
+                        self.pd[]
