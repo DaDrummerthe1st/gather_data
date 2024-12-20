@@ -71,7 +71,7 @@ class retrieve_chuck_norris_jokes:
 
     def retrieve_new_joke(self):
         try:
-            response = requests.get('https://api.chucknorris.io/jokes/random', , timeout=10)
+            response = requests.get('https://api.chucknorris.io/jokes/random', timeout=10)
             response_json = response.json()
         except KeyError as key_err:
             print("Key Error: " + str(key_err))
