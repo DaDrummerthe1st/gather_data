@@ -590,3 +590,40 @@
 [2024-12-20 17:27:13,014][DEBUG][chuck_norris.py][39] no error while trying response-testing
 [2024-12-20 17:27:13,015][DEBUG][connectionpool.py][1051] Starting new HTTPS connection (1): api.chucknorris.io:443
 [2024-12-20 17:27:13,087][DEBUG][connectionpool.py][546] https://api.chucknorris.io:443 "GET /jokes/random HTTP/11" 200 None
+[2024-12-20 17:29:30,430][DEBUG][connectionpool.py][1051] Starting new HTTPS connection (1): api.chucknorris.io:443
+[2024-12-20 17:29:30,500][DEBUG][connectionpool.py][546] https://api.chucknorris.io:443 "GET /jokes/categories HTTP/11" 200 None
+[2024-12-20 17:29:30,501][DEBUG][chuck_norris.py][39] no error while trying response-testing
+[2024-12-20 17:29:30,502][DEBUG][connectionpool.py][1051] Starting new HTTPS connection (1): api.chucknorris.io:443
+[2024-12-20 17:29:30,704][DEBUG][connectionpool.py][546] https://api.chucknorris.io:443 "GET /jokes/random HTTP/11" 200 None
+[2024-12-20 17:30:51,157][DEBUG][connectionpool.py][1051] Starting new HTTPS connection (1): api.chucknorris.io:443
+[2024-12-20 17:30:51,276][DEBUG][connectionpool.py][546] https://api.chucknorris.io:443 "GET /jokes/categories HTTP/11" 200 None
+[2024-12-20 17:30:51,276][DEBUG][chuck_norris.py][39] no error while trying response-testing
+[2024-12-20 17:30:51,277][DEBUG][connectionpool.py][1051] Starting new HTTPS connection (1): api.chucknorris.io:443
+[2024-12-20 17:30:51,365][DEBUG][connectionpool.py][546] https://api.chucknorris.io:443 "GET /jokes/random HTTP/11" 200 None
+[2024-12-20 17:32:08,504][DEBUG][connectionpool.py][1051] Starting new HTTPS connection (1): api.chucknorris.io:443
+[2024-12-20 17:32:08,717][DEBUG][connectionpool.py][546] https://api.chucknorris.io:443 "GET /jokes/categories HTTP/11" 200 None
+[2024-12-20 17:32:08,717][DEBUG][chuck_norris.py][39] no error while trying response-testing
+[2024-12-20 17:32:08,718][DEBUG][connectionpool.py][1051] Starting new HTTPS connection (1): api.chucknorris.io:443
+[2024-12-20 17:32:08,814][DEBUG][connectionpool.py][546] https://api.chucknorris.io:443 "GET /jokes/random HTTP/11" 200 None
+[2024-12-20 17:33:12,945][DEBUG][connectionpool.py][1051] Starting new HTTPS connection (1): api.chucknorris.io:443
+[2024-12-20 17:33:13,020][DEBUG][connectionpool.py][546] https://api.chucknorris.io:443 "GET /jokes/categories HTTP/11" 200 None
+[2024-12-20 17:33:13,021][DEBUG][chuck_norris.py][39] no error while trying response-testing
+[2024-12-20 17:33:13,022][DEBUG][connectionpool.py][1051] Starting new HTTPS connection (1): api.chucknorris.io:443
+[2024-12-20 17:33:13,207][DEBUG][connectionpool.py][546] https://api.chucknorris.io:443 "GET /jokes/random HTTP/11" 200 None
+[2024-12-20 17:34:01,096][DEBUG][connectionpool.py][1051] Starting new HTTPS connection (1): api.chucknorris.io:443
+[2024-12-20 17:34:01,171][DEBUG][connectionpool.py][546] https://api.chucknorris.io:443 "GET /jokes/categories HTTP/11" 200 None
+[2024-12-20 17:34:01,172][DEBUG][chuck_norris.py][39] no error while trying response-testing
+[2024-12-20 17:34:01,173][DEBUG][connectionpool.py][1051] Starting new HTTPS connection (1): api.chucknorris.io:443
+[2024-12-20 17:34:01,248][DEBUG][connectionpool.py][546] https://api.chucknorris.io:443 "GET /jokes/random HTTP/11" 200 None
+[2024-12-20 17:34:18,517][DEBUG][connectionpool.py][1051] Starting new HTTPS connection (1): api.chucknorris.io:443
+[2024-12-20 17:34:18,587][DEBUG][connectionpool.py][546] https://api.chucknorris.io:443 "GET /jokes/categories HTTP/11" 200 None
+[2024-12-20 17:34:18,587][DEBUG][chuck_norris.py][39] no error while trying response-testing
+[2024-12-20 17:34:18,589][DEBUG][connectionpool.py][1051] Starting new HTTPS connection (1): api.chucknorris.io:443
+[2024-12-20 17:34:18,689][DEBUG][connectionpool.py][546] https://api.chucknorris.io:443 "GET /jokes/random HTTP/11" 200 None
+[2024-12-20 17:34:51,082][DEBUG][connectionpool.py][1051] Starting new HTTPS connection (1): api.chucknorris.io:443
+[2024-12-20 17:34:51,266][DEBUG][connectionpool.py][546] https://api.chucknorris.io:443 "GET /jokes/categories HTTP/11" 200 None
+[2024-12-20 17:34:51,266][DEBUG][chuck_norris.py][39] no error while trying response-testing
+[2024-12-20 17:34:51,268][DEBUG][connectionpool.py][1051] Starting new HTTPS connection (1): api.chucknorris.io:443
+[2024-12-20 17:34:51,345][DEBUG][connectionpool.py][546] https://api.chucknorris.io:443 "GET /jokes/random HTTP/11" 200 None
+[2024-12-20 17:43:50,751][DEBUG][connectionpool.py][1051] Starting new HTTPS connection (1): api.chucknorris.io:443
+[2024-12-20 17:43:50,967][DEBUG][connectionpool.py][546] https://api.chucknorris.io:443 "GET /jokes/random HTTP/11" 200 None
