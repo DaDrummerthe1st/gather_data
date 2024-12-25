@@ -1,3 +1,5 @@
+from os.path import exists
+
 import requests
 import logging
 import pandas as pd
@@ -15,15 +17,6 @@ logging.basicConfig(
 class RetrieveChuckNorrisJokes:
     """Since there might be other sources to retrieve from"""
     def __init__(self, database_file):
-        # self.categories_url = ""
-        # self.chuck_norris_jokes = {
-        #     "id": [],
-        #     "created_at": [],
-        #     "updated_at": [],
-        #     "value": [],
-        #     "category": []
-        # }
-
         self.retrieved_df = ""
 
         self.retrieved_joke_id = ""
@@ -33,7 +26,7 @@ class RetrieveChuckNorrisJokes:
         self.retrieved_joke_value = ""
         self.retrieved_joke_category = ""
 
-        self.does_exist_or_not = ""
+        self.joke_in_registry = 1
 
         # Database connection
         self.database_file = database_file
@@ -46,19 +39,6 @@ class RetrieveChuckNorrisJokes:
             print("sqlite3.OperationalError: " + str(e))
         else:
             print("connection cursor" + str(type(self.connection_cursor)))
-
-    def check_for_existance(self):
-        """This method does the following:
-        - checks connection
-        - searches database for retrieved joke id
-        purpose is to return boolean regarding uniique ids
-        """
-        comaparison = self.connection_cursor.execute("select id from jokes where id=?", (self.retrieved_joke_id,)).fetchall()
-        if not comaparison:
-
-        print ("here it is")
-       #(Tkw1X2aESzCyrjqeSTG-RA', '2020-01-05 13:42:25.905626', '2020-01-05 13:42:25.905626', 'https://api.chucknorris.io/jokes/Tkw1X2aESzCyrjqeSTG-RA', 'Chuck Norris has a new policy regarding gays in the military. Dont ask - EVER!')""")
-        # self.connection_cursor.execute('insert into jokes values (?, ?, ?, ?)', (Tkw1X2aESzCyrjqeSTG-RA', '2020-01-05 13:42:25.905626', '2020-01-05 13:42:25.905626', 'https://api.chucknorris.io/jokes/Tkw1X2aESzCyrjqeSTG-RA', 'Chuck Norris has a new policy regarding gays in the military. Dont ask - EVER!')""")
 
     def retrieve_new_joke(self):
         """Fetching a random joke"""
@@ -73,17 +53,42 @@ class RetrieveChuckNorrisJokes:
             print("Connection Error: %s", e)
             logger.error("Connection Error: %s", e)
         else:
-            self.retrieved_df = pd.DataFrame(response_json)
+            print("response_json: " + str(response_json))
+            print("retrieved_df: " + str(self.retrieved_df))
+
+            self.retrieved_df = pd.Series(response_json)
+            print("this is where the fun should be: " + str(self.retrieved_df))
+
             self.retrieved_joke_id = response_json['id']
-            print(self.retrieved_joke_id)
             self.retrieved_joke_created_at = response_json['created_at']
             self.retrieved_joke_updated_at = response_json['updated_at']
             self.retrieved_joke_url = response_json['url']
             self.retrieved_joke_value = response_json['value']
-            #self.retrieved_joke_category = response_json['category']
+            self.retrieved_joke_category = response_json['categories'] if response_json['categories'] != "" else ""
+            print("retrived category: " + str(self.retrieved_joke_category))
+
+    def check_for_existance(self):
+        """This method does the following:
+        - checks connection
+        - searches database for retrieved joke id
+        purpose is to return boolean regarding uniique ids
+        """
+        comparison = self.connection_cursor.execute("select id from jokes where id=?", (self.retrieved_joke_id,)).fetchall()
+        print("comparison: " + str(comparison))
+        if comparison == "":
+            self.joke_in_registry = 1
+            print("joke_in_registry: " + str(self.joke_in_registry))
+        else:
+            self.joke_in_registry = 0
+            self.add_joke_to_database()
 
     def add_joke_to_database(self):
-        pass
+        print("is this joke in db? " + str(self.joke_in_registry))
+        if self.joke_in_registry == 0:
+            try:
+                self.retrieved_df.to_sql('jokes', self.connection_database, if_exists='fail')
+            except ValueError as e:
+                print("ValueError: %s", e)
 
     def close_all_connections(self):
         self.connection_cursor.close()
