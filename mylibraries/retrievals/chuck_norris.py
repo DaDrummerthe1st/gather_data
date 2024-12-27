@@ -60,6 +60,9 @@ class RetrieveChuckNorrisJokes:
             print("this is where the fun should be: " + str(self.retrieved_df))
 
             self.retrieved_joke_id = response_json['id']
+            print("retrieved_joke_id: " + str(self.retrieved_joke_id))
+            print("retrieved_joke_id: " + str(response_json['id']))
+
             self.retrieved_joke_created_at = response_json['created_at']
             self.retrieved_joke_updated_at = response_json['updated_at']
             self.retrieved_joke_url = response_json['url']
@@ -67,28 +70,40 @@ class RetrieveChuckNorrisJokes:
             self.retrieved_joke_category = response_json['categories'] if response_json['categories'] != "" else ""
             print("retrived category: " + str(self.retrieved_joke_category))
 
-    def check_for_existance(self):
-        """This method does the following:
-        - checks connection
-        - searches database for retrieved joke id
-        purpose is to return boolean regarding uniique ids
-        """
-        comparison = self.connection_cursor.execute("select id from jokes where id=?", (self.retrieved_joke_id,)).fetchall()
-        print("comparison: " + str(comparison))
-        if comparison == "":
-            self.joke_in_registry = 1
-            print("joke_in_registry: " + str(self.joke_in_registry))
-        else:
-            self.joke_in_registry = 0
-            self.add_joke_to_database()
+    # def check_for_existance(self):
+    #     """This method does the following:
+    #     - checks connection
+    #     - searches database for retrieved joke id
+    #     purpose is to return boolean regarding uniique ids
+    #     """
+    #     comparison = self.connection_cursor.execute(
+    #       "select id from jokes where id=?",
+    # (self.retrieved_joke_id,)
+    #     ).fetchall()
+    #
+    #     try:
+    #         if comparison == "":
+    #             self.joke_in_registry = 1
+    #             print("joke_in_registry: " + str(self.joke_in_registry))
+    #         else:
+    #             self.joke_in_registry = 0
+    #             print("Joke NOT in registry: ", self.joke_in_registry)
+    #             self.add_joke_to_database()
+    #     except sqlite3.OperationalError as e:
+    #         print("comparison, sqlite3.OperationalError: " + str(e))
+    #     else:
+    #         print("comparison: " + str(comparison))
+
 
     def add_joke_to_database(self):
-        print("is this joke in db? " + str(self.joke_in_registry))
-        if self.joke_in_registry == 0:
-            try:
-                self.retrieved_df.to_sql('jokes', self.connection_database, if_exists='fail')
-            except ValueError as e:
-                print("ValueError: %s", e)
+        # print("is this joke in db? " + str(self.joke_in_registry))
+        # if self.joke_in_registry == 0:
+        #     try:
+        #         self.retrieved_df.to_sql('jokes', self.connection_database, if_exists='fail')
+        #     except ValueError as e:
+        #         print("ValueError: %s", e)
+        self.connection_cursor.execute("""INSERT OR IGNORE INTO jokes VALUES (?,?,?,?,?)""", (self.retrieved_joke_id,)
+                )
 
     def close_all_connections(self):
         self.connection_cursor.close()
