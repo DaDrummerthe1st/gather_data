@@ -19,14 +19,14 @@ class RetrieveChuckNorrisJokes:
     def __init__(self, database_file):
         self.retrieved_df = ""
 
-        self.retrieved_joke_id = ""
-        self.retrieved_joke_created_at = ""
-        self.retrieved_joke_updated_at = ""
-        self.retrieved_joke_url = ""
-        self.retrieved_joke_value = ""
-        self.retrieved_joke_category = ""
+        # self.retrieved_joke_id = ""
+        # self.retrieved_joke_created_at = ""
+        # self.retrieved_joke_updated_at = ""
+        # self.retrieved_joke_url = ""
+        # self.retrieved_joke_value = ""
+        # self.retrieved_joke_category = ""
 
-        self.joke_in_registry = 1
+        # self.joke_in_registry = 1
 
         # Database connection
         self.database_file = database_file
@@ -53,22 +53,22 @@ class RetrieveChuckNorrisJokes:
             print("Connection Error: %s", e)
             logger.error("Connection Error: %s", e)
         else:
-            print("response_json: " + str(response_json))
-            print("retrieved_df: " + str(self.retrieved_df))
+            # print("response_json: " + str(response_json))
+            # print("retrieved_df: " + str(self.retrieved_df))
 
             self.retrieved_df = pd.Series(response_json)
-            print("this is where the fun should be: " + str(self.retrieved_df))
+            # print("this is where the fun should be: " + str(self.retrieved_df))
 
-            self.retrieved_joke_id = response_json['id']
-            print("retrieved_joke_id: " + str(self.retrieved_joke_id))
-            print("retrieved_joke_id: " + str(response_json['id']))
-
-            self.retrieved_joke_created_at = response_json['created_at']
-            self.retrieved_joke_updated_at = response_json['updated_at']
-            self.retrieved_joke_url = response_json['url']
-            self.retrieved_joke_value = response_json['value']
-            self.retrieved_joke_category = response_json['categories'] if response_json['categories'] != "" else ""
-            print("retrived category: " + str(self.retrieved_joke_category))
+            # self.retrieved_joke_id = response_json['id']
+            # print("retrieved_joke_id: " + str(self.retrieved_joke_id))
+            # print("retrieved_joke_id: " + str(response_json['id']))
+            #
+            # self.retrieved_joke_created_at = response_json['created_at']
+            # self.retrieved_joke_updated_at = response_json['updated_at']
+            # self.retrieved_joke_url = response_json['url']
+            # self.retrieved_joke_value = response_json['value']
+            # self.retrieved_joke_category = response_json['categories'] if response_json['categories'] != "" else ""
+            # print("retrived category: " + str(self.retrieved_joke_category))
 
     # def check_for_existance(self):
     #     """This method does the following:
@@ -102,10 +102,28 @@ class RetrieveChuckNorrisJokes:
         #         self.retrieved_df.to_sql('jokes', self.connection_database, if_exists='fail')
         #     except ValueError as e:
         #         print("ValueError: %s", e)
-        self.connection_cursor.execute("""INSERT OR IGNORE INTO jokes VALUES (?,?,?,?,?)""", (self.retrieved_joke_id,)
+        print("let's start here \n" + str(self.retrieved_df['created_at']))
+        # for i in self.retrieved_df:
+        #     print(i)
+        try:
+            self.connection_cursor.execute("""INSERT INTO jokes VALUES (?,?,?,?,?)""",
+                                    (
+                                        str(self.retrieved_df['id']),
+                                        str(self.retrieved_df['created_at']),
+                                        str(self.retrieved_df['updated_at']),
+                                        str(self.retrieved_df['url']),
+                                        str(self.retrieved_df['value'])
+                                    )
                 )
 
+        except sqlite3.OperationalError as e:
+            print("OperationalError: " + str(e))
+        except sqlite3.ProgrammingError as e:
+            print("ProgrammingError: " + str(e))
+
     def close_all_connections(self):
+        self.connection_database.commit()
+
         self.connection_cursor.close()
         self.connection_database.close()
 
@@ -176,6 +194,7 @@ actual_path = "../../resources/database/chuck_norris_jokes.db"
 chuck_norris1 = RetrieveChuckNorrisJokes(database_file=actual_path)
 #chuck_norris1.retrieve_categories(categories_url=categories)
 chuck_norris1.retrieve_new_joke()
-chuck_norris1.check_for_existance()
+#chuck_norris1.check_for_existance()
+chuck_norris1.add_joke_to_database()
 
 chuck_norris1.close_all_connections()
