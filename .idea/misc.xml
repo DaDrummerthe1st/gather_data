@@ -3,5 +3,5 @@
   <component name="Black">
     <option name="sdkName" value="Python 3.12 (gather_data)" />
   </component>
-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.12 (gather_data)" project-jdk-type="Python SDK" />
+  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.12 virtualenv at ~/utbildning/data24hel/kurser/data_science/code/own_project_for_hand_in/gather_data/.venv" project-jdk-type="Python SDK" />
 </project>

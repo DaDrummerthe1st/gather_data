@@ -8,7 +8,7 @@ import sqlite3
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(
-    filename='../../resources/general.log',
+    filename='resources/general.log',
     level=logging.DEBUG,
     format='[%(asctime)s][%(levelname)s][%(filename)s][%(lineno)d] %(message)s'
 )
@@ -18,6 +18,8 @@ class RetrieveChuckNorrisJokes:
     """Since there might be other sources to retrieve from"""
     def __init__(self, database_file):
         self.retrieved_df = ""
+        self.response_json = ""
+        self.joke_in_db = True
 
         # self.retrieved_joke_id = ""
         # self.retrieved_joke_created_at = ""
@@ -35,10 +37,13 @@ class RetrieveChuckNorrisJokes:
             self.connection_cursor = self.connection_database.cursor()
         except FileNotFoundError as e:
             print("FileNotFoundError: " + str(e))
+            logger.critical("FileNotFoundError: " + str(e))
         except sqlite3.OperationalError as e:
             print("sqlite3.OperationalError: " + str(e))
+            logger.critical("sqlite3.OperationalError: " + str(e))
         else:
             print("connection cursor" + str(type(self.connection_cursor)))
+            logger.debug("connection cursor" + str(type(self.connection_cursor)))
 
     def retrieve_new_joke(self):
         """Fetching a random joke"""
@@ -53,7 +58,7 @@ class RetrieveChuckNorrisJokes:
             print("Connection Error: %s", e)
             logger.error("Connection Error: %s", e)
         else:
-            # print("response_json: " + str(response_json))
+            logger.debug("response_json: " + str(response_json['id']))
             # print("retrieved_df: " + str(self.retrieved_df))
 
             self.retrieved_df = pd.Series(response_json)
@@ -95,35 +100,52 @@ class RetrieveChuckNorrisJokes:
     #         print("comparison: " + str(comparison))
 
 
-    def add_joke_to_database(self):
+    def check_for_joke_in_database(self):
         # print("is this joke in db? " + str(self.joke_in_registry))
         # if self.joke_in_registry == 0:
         #     try:
         #         self.retrieved_df.to_sql('jokes', self.connection_database, if_exists='fail')
         #     except ValueError as e:
         #         print("ValueError: %s", e)
-        print("let's start here \n" + str(self.retrieved_df['created_at']))
+        # print("let's start here \n" + str(self.retrieved_df['created_at']))
         # for i in self.retrieved_df:
         #     print(i)
-        try:
-            self.connection_cursor.execute("""INSERT INTO jokes VALUES (?,?,?,?,?)""",
-                                    (
-                                        str(self.retrieved_df['id']),
-                                        str(self.retrieved_df['created_at']),
-                                        str(self.retrieved_df['updated_at']),
-                                        str(self.retrieved_df['url']),
-                                        str(self.retrieved_df['value'])
-                                    )
+        select_results = self.connection_cursor.execute("""SELECT * FROM jokes""").fetchall()
+        self.joke_in_db = False # Value is set True in __init__ for lockdown reason and unlocked when this method is run
+        for tuples in select_results:
+            if self.retrieved_df['id'] == tuples[0]:
+                self.joke_in_db = True # If found this will brake all future attempts to save this joke
+                logger.debug(f"Joke {self.retrieved_df['id']} in database")
+                print(f"Joke {self.retrieved_df['id']} in database")
+
+    def crud_chuck_norris(self):
+        print(self.retrieved_df)
+        if not self.joke_in_db:
+            try:
+                self.connection_cursor.execute("""INSERT INTO jokes VALUES (?,?,?,?,?,?)""",
+                                        (
+                                            str(self.retrieved_df['id']),
+                                            str(self.retrieved_df['created_at']),
+                                            str(self.retrieved_df['updated_at']),
+                                            str(self.retrieved_df['url']),
+                                            str(self.retrieved_df['value']),
+                                            str(self.retrieved_df['categories'])
+                                        )
                 )
 
-        except sqlite3.OperationalError as e:
-            print("OperationalError: " + str(e))
-        except sqlite3.ProgrammingError as e:
-            print("ProgrammingError: " + str(e))
+            except sqlite3.OperationalError as e:
+                print("OperationalError: " + str(e))
+            except sqlite3.ProgrammingError as e:
+                print("ProgrammingError: " + str(e))
+            else:
+                self.connection_database.commit()
+                logger.debug("Data saved to database")
+                print("Data saved to database")
+        else:
+            logger.debug("Data not saved to database")
+            print("Data not saved to database")
 
     def close_all_connections(self):
-        self.connection_database.commit()
-
         self.connection_cursor.close()
         self.connection_database.close()
 
@@ -185,16 +207,3 @@ class RetrieveChuckNorrisJokes:
     #             logger.error("Connection Error: %s", e)
     #         else:
     #             print(self.chuck_norris_jokes)
-
-
-# categories = 'https://api.chucknorris.io/jokes/categories'
-actual_path = "../../resources/database/chuck_norris_jokes.db"
-
-
-chuck_norris1 = RetrieveChuckNorrisJokes(database_file=actual_path)
-#chuck_norris1.retrieve_categories(categories_url=categories)
-chuck_norris1.retrieve_new_joke()
-#chuck_norris1.check_for_existance()
-chuck_norris1.add_joke_to_database()
-
-chuck_norris1.close_all_connections()
